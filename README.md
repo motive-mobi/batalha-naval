@@ -1,1 +1,1 @@
-# batalha-naval
+# Batalha Naval, desenvolvido em node.js
