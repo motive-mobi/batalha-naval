@@ -8,12 +8,13 @@ router.post('/', function(req, res, next) {
   var hash = md5(nick);
   //console.log(hash);
   let user = [];
-  user = {
+  user.push({
     'userNick':nick,
     'userHash':hash,
-  };
-  
-  res.render('index', {nick: nick,userHash: hash , title:'Batalha Naval'});
+  });
+  console.log(user);
+
+  res.render('index', {nick: nick,userHash: hash , title: 'Batalha Naval'});
 });
 
 module.exports = router;
