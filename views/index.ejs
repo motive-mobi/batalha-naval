@@ -4,13 +4,14 @@
     <div class="row">
       <div class="col">
         <h1><%= title %></h1>
-        <h2><%= nick %></h2>
-        <h3><%= userHash %></h3>
+        <h3>Jogador: <%= nick %></h3>
+        <h3>Jogo: <%= game %></h3>
       </div>
     </div>
+    <% if(!game) { %>
     <div class="row">
       <div class="col-4 m-auto">
-        <form method="POST" action="/users">
+        <form method="POST" action="/jogo">
           <div class="form-group">
             <label for="inputNickName">Seu nick</label>
             <input name="nickname" type="text" class="form-control" id="inputNickName" aria-describedby="inputNickNameHelp" placeholder="Informe seu nickname">
@@ -19,12 +20,15 @@
         </form>
       </div>
     </div>
+    <% } %>
     <div class="row mt-5">
       <div class="col-6">
-        Tabuleiro 1
+        <p>Tabuleiro 1</p>
+        <p>Jogador: <strong><%= players.jogador1 %></strong></p>
       </div>
       <div class="col-6">
-        Tabuleiro 2
+        <p>Tabuleiro 2</p>
+        <p>Jogador: <strong><%= players.jogador2 %></strong></p>
       </div>
     </div>
   </div>

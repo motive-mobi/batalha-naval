@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var jogoRouter = require('./routes/jogo');
 
 var app = express();
 //HABILITA O USO DAS VARIÁVEIS DE SESSÃO
@@ -15,6 +15,10 @@ var session = require('express-session');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(session({
+  'secret': 'motiveapp-batalhanaval'
+}))
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,7 +26,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/jogo', jogoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
