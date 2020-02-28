@@ -1,9 +1,30 @@
 <%- include('partials/header') %>
 
-  <div class="container">
+  <div class="container text-center">
     <div class="row">
-      <div class="col text-center">
+      <div class="col">
         <h1><%= title %></h1>
+        <h2><%= nick %></h2>
+        <h3><%= userHash %></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4 m-auto">
+        <form method="POST" action="/users">
+          <div class="form-group">
+            <label for="inputNickName">Seu nick</label>
+            <input name="nickname" type="text" class="form-control" id="inputNickName" aria-describedby="inputNickNameHelp" placeholder="Informe seu nickname">
+          </div>
+          <button type="submit" class="btn btn-primary">Vamos lá!</button>
+        </form>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-6">
+        Tabuleiro 1
+      </div>
+      <div class="col-6">
+        Tabuleiro 2
       </div>
     </div>
   </div>
