@@ -19,11 +19,11 @@ router.post('/', function(req, res, next) {
     'jogador2': req.session.player2,
   };
 
-  console.log('game id: ', req.session.gameId);
-  console.log('jogadores: ', players);
+  //console.log('game id: ', req.session.gameId);
+  //console.log('jogadores: ', players);
 
-  res.render('index', {nick: nick, game: req.session.gameId, players: players, title: 'Batalha Naval'});
-  //res.redirect('/');
+  res.json({game: req.session.gameId, players: players});
+  res.end();
 });
 
 module.exports = router;
