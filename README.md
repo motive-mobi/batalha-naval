@@ -1,1 +1,1 @@
-# Batalha Naval, desenvolvido em node.js
+# Batalha Naval, desenvolvido em node.js (api) e React (front end)
