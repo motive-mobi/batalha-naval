@@ -15,7 +15,7 @@ class MyApp extends React.Component {
       <h1>Batalha Naval - O Capitão Lucky II</h1>
        <div className="row mt-5">
          <div className="col col-md-4 m-auto">
-           <form id="gameForm" method="POST" action="/api/v1/players">
+           <form id="gameForm">
              <div className="form-group">
                <label htmlFor="inputNickName">Seu nick</label>
                <input name="nickname" type="text" className="form-control" id="inputNickName" aria-describedby="inputNickNameHelp" placeholder="Informe seu nickname"/>
