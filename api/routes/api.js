@@ -15,21 +15,22 @@ router.post('/', function(req, res, next) {
   if(localStorage.getItem('gameId') === null){
     localStorage.setItem('gameId', hash);
     localStorage.setItem('player1', nick);
+    localStorage.setItem('gameReady', 'false');
   }else if(localStorage.getItem('player2') === null){
     localStorage.setItem('player2', nick);
+    localStorage.setItem('gameReady', 'true');
+  }else{
+
   }
 
-  console.log(localStorage.getItem('gameId'),localStorage.getItem('player1'),localStorage.getItem('player2'));
+  console.log(localStorage.getItem('gameId'), localStorage.getItem('player1'), localStorage.getItem('player2'), localStorage.getItem('gameReady'));
 
   let players = {
     'jogador1': localStorage.getItem('player1'),
     'jogador2': localStorage.getItem('player2'),
   };
 
-  //console.log('game id: ', req.session.gameId);
-  //console.log('jogadores: ', players);
-
-  res.json({gameId: localStorage.getItem('gameId'), players: players});
+  res.json({gameId: localStorage.getItem('gameId'), players: players, gameReady: localStorage.getItem('gameReady')});
   res.end();
 });
 
