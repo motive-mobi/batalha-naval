@@ -9,18 +9,12 @@ var apiRouter = require('./routes/api');
 var cors = require('cors');
 
 var app = express();
-//HABILITA O USO DAS VARIÁVEIS DE SESSÃO
-var session = require('express-session');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cors());
-
-app.use(session({
-  'secret': 'motiveapp-batalhanaval'
-}))
 
 app.use(logger('dev'));
 app.use(express.json());
