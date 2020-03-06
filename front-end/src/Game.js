@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import GameInput from './GameInput'
 import GameMessage from './GameMessage'
+import GameBoard from './GameBoard'
 
 const URL = 'ws://localhost:3030'
 
@@ -71,6 +72,7 @@ class Game extends Component {
                 name={message.name}
               />,
             )}
+            {this.state.name !== '' ? <GameBoard name={this.state.name} /> : null}
           </div>
         </div>
       </div>
