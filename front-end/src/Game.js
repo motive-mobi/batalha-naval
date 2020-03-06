@@ -72,7 +72,7 @@ class Game extends Component {
                 name={message.name}
               />,
             )}
-            {this.state.name !== '' ? <GameBoard name={this.state.name} /> : null}
+            {this.state.name !== '' ? <GameBoard name={this.state.name} /> : ''}
           </div>
         </div>
       </div>
