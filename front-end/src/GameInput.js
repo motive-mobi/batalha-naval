@@ -10,6 +10,11 @@ class GameInput extends Component {
   }
 
   render() {
+    const inputStyles = {
+      maxWidth: '300px',
+      margin: 'auto',
+    };
+
     return (
       <form
         action="."
@@ -21,6 +26,7 @@ class GameInput extends Component {
       >
         <input
           className="form-control"
+          style={inputStyles}
           type="text"
           placeholder={'Aqui serão registradas as jogadas...'}
           value={this.state.message}

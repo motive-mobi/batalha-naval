@@ -48,7 +48,7 @@ class Game extends Component {
     //console.log(typeof(this.state.messages));
     return (
       <div className="row mt-5">
-        <div className="col col-md-4 m-auto">
+        <div className="col m-auto">
           <div className="form-group">
             <label htmlFor="name">
               Nickname

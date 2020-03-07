@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="container text-center">
+      <div className="container-fluid text-center">
        <div className="row mt-5">
          <div className="col col-md-4 m-auto">
           <h1>Batalha Naval</h1>
