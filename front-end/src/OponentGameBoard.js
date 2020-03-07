@@ -58,7 +58,7 @@ class OponentGameBoard extends Component {
     return(
 
         <div className="col">
-          <p>Oponente</p>
+          <p>Oponente <span class="badge badge-danger">Offline</span></p>
           <div id="board-2"></div>
         </div>
 

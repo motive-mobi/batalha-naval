@@ -52,7 +52,7 @@ class MyGameBoard extends Component {
     return(
 
         <div className="col">
-          <p>Você</p>
+          <p>Você <span class="badge badge-success">Online</span></p>
           <div id="board-1"></div>
         </div>
 
