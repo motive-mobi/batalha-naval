@@ -5,30 +5,24 @@ class MyGameBoard extends Component {
   componentDidMount() {
     var lastClicked;
     var itemSelected = [7,8,21,22];
+    var myItems = [];
     var grid = clickableGrid(10,10,function(el,row,col,i){
         //console.log("You clicked on element:",el);
         //console.log("You clicked on row:",row);
         //console.log("You clicked on col:",col);
         //console.log("You clicked on item #:",i);
-        let hit = false;
 
         el.className='clicked';
         if (lastClicked) lastClicked.className='';
         lastClicked = el;
 
-        function checkItem(item){
-          if(item === i){
-            hit = true;
-          }
-
-          if(hit === false){
-            el.style.backgroundColor = "#BCD7E8";
-          }else{
-            el.style.backgroundColor = "#EB3328";
-          }
+        function addItem(item){
+          myItems.push(item);
+          el.style.backgroundColor = "#2F203D";
+          console.log(myItems);
         }
 
-        let call = itemSelected.find(checkItem);
+        addItem(i);
 
     });
     document.getElementById('board-1').appendChild(grid);
