@@ -5,6 +5,7 @@ import OponentGameBoard from './OponentGameBoard';
 class GameBoard extends Component {
 
   render() {
+
     return(
       <div className="row">
         <MyGameBoard />

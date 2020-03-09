@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 
 class OponentGameBoard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      ready: false,
+    }
+  }
 
   componentDidMount() {
     var lastClicked;
@@ -55,14 +61,22 @@ class OponentGameBoard extends Component {
   }
 
   render() {
-    return(
+    if(this.state.ready === true){
+      return(
+          <div className="col">
+            <p>Oponente <span className="badge badge-success">Pronto</span></p>
+            <div id="board-2"></div>
+          </div>
+      );
+    }else{
+      return(
+          <div className="col">
+            <p>Oponente <span className="badge badge-danger">Preparando...</span></p>
+            <div id="board-2"></div>
+          </div>
+      );
+    }
 
-        <div className="col">
-          <p>Oponente <span class="badge badge-danger">Offline</span></p>
-          <div id="board-2"></div>
-        </div>
-
-    );
   }
 }
 

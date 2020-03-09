@@ -6,17 +6,25 @@ import GameBoard from './GameBoard'
 const URL = 'ws://localhost:3030'
 
 class Game extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      messages: [],
+    }
+  }
+  /*state = {
+    online: false,
     name: '',
     messages: [],
-  }
+  }*/
 
   ws = new WebSocket(URL)
 
   componentDidMount() {
     this.ws.onopen = () => {
       // on connecting, do nothing but log it to the console
-      console.log('connected')
+      console.log('connected');
     }
 
     this.ws.onmessage = evt => {
@@ -26,12 +34,14 @@ class Game extends Component {
     }
 
     this.ws.onclose = () => {
-      console.log('disconnected')
+      console.log('disconnected');
+      console.log(this.ws.readyState);
       // automatically try to reconnect on connection loss
       this.setState({
         ws: new WebSocket(URL),
       })
     }
+
   }
 
   addMessage = message =>
@@ -45,7 +55,7 @@ class Game extends Component {
   }
 
   render() {
-    //console.log(typeof(this.state.messages));
+
     return (
       <div className="row mt-5">
         <div className="col m-auto">
@@ -72,7 +82,7 @@ class Game extends Component {
                 name={message.name}
               />,
             )}
-            {this.state.name !== '' ? <GameBoard name={this.state.name} /> : ''}
+            <GameBoard />
           </div>
         </div>
       </div>
