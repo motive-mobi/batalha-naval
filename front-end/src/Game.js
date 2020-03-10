@@ -1,27 +1,27 @@
-import React, { Component } from 'react'
-import GameInput from './GameInput'
-import GameMessage from './GameMessage'
-import GameBoard from './GameBoard'
+import React, { Component } from 'react';
+//import GameInput from './GameInput'
+//import GameMessage from './GameMessage'
+import GameBoard from './GameBoard';
 
-const URL = 'ws://localhost:3030'
+//const URL = 'ws://localhost:3030'
 
 class Game extends Component {
-  constructor(props) {
+  /*constructor(props) {
     super(props);
     this.state = {
       name: '',
       messages: [],
     }
-  }
+  }*/
   /*state = {
     online: false,
     name: '',
     messages: [],
   }*/
 
-  ws = new WebSocket(URL)
+  //ws = new WebSocket(URL)
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.ws.onopen = () => {
       // on connecting, do nothing but log it to the console
       console.log('connected');
@@ -52,15 +52,15 @@ class Game extends Component {
     const message = { name: this.state.name, message: messageString }
     this.ws.send(JSON.stringify(message))
     this.addMessage(message)
-  }
+  }*/
 
   render() {
 
     return (
       <div className="row mt-5">
         <div className="col m-auto">
-          <div className="form-group">
-            <label htmlFor="name">
+          {/*<div className="form-group">*/}
+            {/*<label htmlFor="name">
               Nickname
               <input
                 className="form-control"
@@ -70,20 +70,20 @@ class Game extends Component {
                 value={this.state.name}
                 onChange={e => this.setState({ name: e.target.value })}
               />
-            </label>
-            <GameInput
+            </label>*/}
+            {/*<GameInput
               ws={this.ws}
               onSubmitMessage={messageString => this.submitMessage(messageString)}
-            />
-            {this.state.messages.map((message, index) =>
+            />*/}
+            {/*{this.state.messages.map((message, index) =>
               <GameMessage
                 key={index}
                 message={message.message}
                 name={message.name}
               />,
-            )}
+            )}*/}
             <GameBoard />
-          </div>
+          {/*</div>*/}
         </div>
       </div>
     )

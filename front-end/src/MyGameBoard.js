@@ -33,7 +33,7 @@ class MyGameBoard extends Component {
     //console.log('prop player1Items:',this.state.player1Items);
     //console.log('prop player1Status:',this.state.player1Status);
     return(
-        <div className="col">
+        <div className="col-12 col-md-6">
           {(this.state.player1Items.length < 4) ? <p>Você <span className="badge badge-danger">Preparando...</span></p> : <p>Você <span className="badge badge-success">Pronto</span></p>}
           <div id="board-1">
             <table className = 'grid'>
@@ -164,8 +164,8 @@ class MyGameBoard extends Component {
           {/*<button className="btn btn-primary" onClick={this.handleClick}>Vamos lá</button>*/}
         </div>
     );
-
   }
+
 }
 
 
