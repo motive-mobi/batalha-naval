@@ -5,6 +5,12 @@ import OponentGameBoard from './OponentGameBoard';
 const URL = 'ws://localhost:3030';
 
 class GameBoard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      messages: [],
+    };
+  }
 
   ws = new WebSocket(URL)
 
@@ -36,9 +42,10 @@ class GameBoard extends Component {
 
   submitMessage = messageString => {
     // on submitting the ChatInput form, send the message, add it to the list and reset the input
-    const message = { name: this.state.name, message: messageString }
+    const message = { message: messageString }
     this.ws.send(JSON.stringify(message))
     this.addMessage(message)
+    console.log('messageString:',messageString);
   }
 
   render() {

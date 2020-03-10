@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import md5 from 'md5';
 
 class MyGameBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      playerId: '',
       player1Items: [],
       player1Status: false,
     };
@@ -12,26 +14,38 @@ class MyGameBoard extends Component {
   }
 
   handleClick(e) {
+    console.log('handleclick playeritems:',this.state.player1Items);
     const newItem = e.target.dataset.value;
     this.setState(prevState => ({
       player1Items: [...prevState.player1Items, newItem]
-    }))
+    }));
     e.target.style.backgroundColor = "#2F203D";
     this.handleChange();
   }
 
   handleChange() {
-    //console.log(this.state.player1Items.length);
-    if(this.state.player1Items.length === 3) {
+    if(this.state.playerId === ''){
+      this.setState({
+        playerId: md5(new Date().toLocaleString()),
+      });
+    }
+
+    //if(this.state.player1Items.length !== 0) {
       this.setState({
         player1Status: true,
       });
-    }
+
+      this.props.onSubmitMessage({
+        playerId: this.state.playerId,
+        itemsPosition: this.state.player1Items,
+      });
+    //}
   }
 
   render() {
     //console.log('prop player1Items:',this.state.player1Items);
     //console.log('prop player1Status:',this.state.player1Status);
+    console.log('prop playerId:',this.state.playerId);
     return(
         <div className="col-12 col-md-6">
           {(this.state.player1Items.length < 4) ? <p>Você <span className="badge badge-danger">Preparando...</span></p> : <p>Você <span className="badge badge-success">Pronto</span></p>}

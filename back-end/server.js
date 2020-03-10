@@ -1,5 +1,4 @@
 const WebSocket = require('ws');
-var md5 = require('md5');
 
 const wss = new WebSocket.Server({ port: 3030 });
 const log = new Array;
@@ -14,8 +13,9 @@ wss.on('connection', function connection(ws) {
         client.send(data);
       }
     });
+    console.log(data);
     //console.log(JSON.parse(data));
-    createGame(JSON.parse(data));
+    //createGame(JSON.parse(data));
   });
 });
 
